@@ -4,20 +4,6 @@
 
 tic
 
-% Dimension maxima segun X y segun Y
-Largos = [ max(coordnod(:,1))-min(coordnod(:,1)) max(coordnod(:,2))-min(coordnod(:,2)) ];
-
-
-
-
-% Conectividad de los nodos
-conectiv = zeros(nelem,2) ;
-for i = 1:nelem
-	%
-	conectiv(i,:) = [i i+1] ;
-	%
-end
-
 % Matriz de rigidez total
 KG = zeros(3*nnod,3*nnod) ;
 
@@ -141,7 +127,7 @@ end
 
 % Restricciones
 % Supongo todo empotrado y luego voy sacando restricciones
-% Pongo 0 donde no hay restricción
+% Pongo 0 donde no hay restriccion
 gdlfij = [ 1  2  3 3*nnod-2 3*nnod-1 3*nnod ] ; 
 for i=1:2
 	if rest(i) == 1

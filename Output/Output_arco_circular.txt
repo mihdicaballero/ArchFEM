@@ -1,7 +1,7 @@
  ========================= Reacciones ========================= 
 
  Extremo izquierdo:  
- H_A = 2.1646e-010kN   V_A = 3.4619e+001kN   M_A = 0.0000e+000kNm  
+ H_A = 3.6562e-010kN   V_A = 3.4619e+001kN   M_A = 0.0000e+000kNm  
  Extremo derecho:  
  H_B = 0.0000e+000kN   V_B = 3.1752e+001kN   M_B = 0.0000e+000kNm  
 

@@ -179,3 +179,11 @@ thetai = zeros(nnod,1) ;
 for i = 1:nnod
 	thetai(i) = theta+ang/nelem*(i-1) ;
 end
+
+% Conectividad de los nodos
+conectiv = zeros(nelem,2) ;
+for i = 1:nelem
+	%
+	conectiv(i,:) = [i i+1] ;
+	%
+end

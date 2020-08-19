@@ -1,21 +1,20 @@
 % ========================================================
 % Herramienta realizada por estudiantes en el curso
-% Métodos Computacionales Aplicados al Cálculo Estructural
+% Metodos Computacionales Aplicados al Calculo Estructural
 %
-% v1.0 Noviembre de 2014
-% v2.0 Noviembre de 2015
+% v1.0 Noviembre de 2014 - Analisis lineal de vigas curvas - MC/YR/FV
+% v2.0 Noviembre de 2015 - Implenteacion de cargas puntuales - MC
+% v3.0 Noviembre de 2017 - Analisis no lineal de arcos - MC
 %
-% Mihdí Caballero / Yessica Rodríguez / Francisco Vidovich
+% Mihdi� Caballero / Yessica Rodriguez / Francisco Vidovich
 
 % Enviar dudas y sugerencias a mcaballero@fing.edu.uy
 
-% Introducción al programa y elección de tipo de problema
+% Introduccion al programa y eleccion de tipo de problema
 %
 % Cerramos todo lo anterior abierto y borramos todas las variables existentes
 %
 close all, clc, clear all
-
-
 
 disp(' ===========================================================================')
 disp(' ===========================================================================')
@@ -100,74 +99,81 @@ if Language == 1
 	end
 
 	if tipo == 1
-	disp('')
-	disp(' Edit the input values for this type of arch.')
-	disp(' If you have already entered the input values, saved the file and wish')
-	disp(' to continue, press Enter.') ; input('') ;
-	cd Source
-		cd preProcess
+		disp('')
+		disp(' Select type of analysis')
+		disp(' 1: Linear static analysis')
+		disp(' 2: Nonlinear static analysis'); analysis = input(' Type: ') ;
+		disp('')
+		disp(' Edit the input values for a circular arch.')
+		disp(' If you have already entered the input values, saved the file and wish')
+		disp(' to continue, press Enter.') ; input('') ;
+		cd Source
 			pre_circular
-		cd ..
-		if ap_error == 1
+			if ap_error == 1
+				cd ..
+				return
+			end
+			if nod_error == 1
+				cd ..
+				return
+			end
+			if analysis == 1
+				Process
+			else 
+				setini
+				process_NL
+			end
+			cd posProcess
+				ploteos
+				output
 			cd ..
-			return
-		end
-		if nod_error == 1
-			cd ..
-			return
-		end
-		Process
-		cd posProcess
-			ploteos
-			output
-		cd ..
-	cd ..
+		cd ..			
 	elseif tipo ==2
-	disp('')
-	disp(' Edit the input values for this type of arch.')
-	disp(' If you have already entered the input values, saved the file and wish')
-	disp(' to continue, press Enter.') ; input('') ;
-	cd Source
-		cd preProcess
-			pre_parabolico
-		cd ..
-		if ap_error == 1
+		disp('')
+		disp(' Edit the input values for this type of arch.')
+		disp(' If you have already entered the input values, saved the file and wish')
+		disp(' to continue, press Enter.') ; input('') ;
+		cd Source
+			cd preProcess
+				pre_parabolico
 			cd ..
-			return
-		end
-		if nod_error == 1
+			if ap_error == 1
+				cd ..
+				return
+			end
+			if nod_error == 1
+				cd ..
+				return
+			end
+			Process
+			cd posProcess
+				ploteos
+				output
 			cd ..
-			return
-		end
-		Process
-		cd posProcess
-			ploteos
-			output
 		cd ..
-	cd ..
 	else
-	disp('')
-	disp(' Edit the input values for this type of arch.')
-	disp(' If you have already entered the input values, saved the file and wish')
-	disp(' to continue, press Enter.') ; input('') ;
-	cd Source
-		cd preProcess
-			pre_catenaria
-		cd ..
-		if ap_error == 1
+		disp('')
+		disp(' Edit the input values for this type of arch.')
+		disp(' If you have already entered the input values, saved the file and wish')
+		disp(' to continue, press Enter.') ; input('') ;
+		cd Source
+			cd preProcess
+				pre_catenaria
 			cd ..
-			return
-		end
-		if nod_error == 1
+			if ap_error == 1
+				cd ..
+				return
+			end
+			if nod_error == 1
+				cd ..
+				return
+			end
+			Process
+			cd posProcess
+				ploteos
+				output
 			cd ..
-			return
-		end
-		Process
-		cd posProcess
-			ploteos
-			output
 		cd ..
-	cd ..
 	end
 elseif Language == 2
 %                                 

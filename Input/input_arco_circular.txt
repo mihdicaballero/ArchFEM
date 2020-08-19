@@ -1,36 +1,36 @@
 Radio de curvatura [m]
-2
+2.54
 Coordenada x de los extremos respecto al centro de la circunferencia [m] [Izq Der]:
--2 2
+-2.032 2.032
+Angulo total menor a 180°: 1 = si, 0 = no
+1
 Num Elementos (mínimo 2)
-34
+20
 Carga distribuida (positiva hacia arriba) [kN/m]
--12
+0
 Tipo de distribución de la carga: 1 = Según eje horizontal - 2 = A lo largo del arco
 2
 Cargas puntuales (Fx positiva hacia la derecha, Fy positiva hacia arriba, Mz positivo antihorario):
 Cantidad de cargas puntuales:
-3
+1
 Nodo   Fx [kN]  Fy [kN] Mz [kN.m]
-3		 5		  5 	  -10
-15		 3		  -8 	  10
-28		 -8		  12 	  -10
+11		 0		  1 	  0
 Tipos de apoyos de cada extremo [Izq Der]:
 1 = Libre - 2 = Apoyo Deslizante - 3 = Apoyo Fijo - 4 = Empotrado 
-3 2
+3 3
 Modulo Elasticidad [kN/m2]
-30041637.77
+6.895e+07
 Area de la viga [m2]
-0.00495
+0.000645
 Inercia de la viga [m4]
-0.000009281
+3.4686e-08
 Escala para ploteo de estructura deformada
-6
+1
 ¿Ver valores de solicitaciones en las figuras? 1 = Si - 2 = No
 2
 Elija que gráficos desea ver. 1 = Si - 2 = No
 Modelo de la estructura   Estructura Deformada  Cortante   Momento   Directa 
-          1                        1               1          1         1
+          2                        2               2          2         2
 Respecto al modelo de la estructura, elija que quiere ver: 1 = Si - 2 = No
 Apoyos    Nº de nodos  Nodos   Barras  Cargas
    1			1		 1		 1  	 1

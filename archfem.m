@@ -3,10 +3,10 @@
 % Metodos Computacionales Aplicados al Calculo Estructural
 %
 % v1.0 Noviembre de 2014 - Analisis lineal de vigas curvas - MC/YR/FV
-% v2.0 Noviembre de 2015 - Implenteacion de cargas puntuales - MC
+% v2.0 Noviembre de 2015 - Implementacion de cargas puntuales - MC
 % v3.0 Noviembre de 2017 - Analisis no lineal de arcos - MC
 %
-% Mihdi­ Caballero / Yessica Rodriguez / Francisco Vidovich
+% MihdiÂ­ Caballero / Yessica Rodriguez / Francisco Vidovich
 
 % Enviar dudas y sugerencias a mcaballero@fing.edu.uy
 

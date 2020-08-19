@@ -1,0 +1,42 @@
+Coordenadas de los dos apoyos (x,y) [m]
+-10 0
+10 0
+Constante [a] de la función de la catenaria  y(x)=a*cosh(x/a)
+5
+Num Elementos (mínimo 2)
+34
+Carga distribuida (positiva hacia arriba) [kN/m]
+-10
+Tipo de distribución de la carga: 1 = Según eje horizontal - 2 = A lo largo del arco
+1
+Cargas puntuales (Fx positiva hacia la derecha, Fy positiva hacia arriba, Mz positivo antihorario):
+Cantidad de cargas puntuales:
+3
+Nodo   Fx [kN]  Fy [kN] Mz [kN.m]
+3		 5		  5 	  -10
+15		 3		  -8 	  10
+28		 -8		  12 	  -10
+Tipos de apoyos de cada extremo [Izq Der]:
+1 = Libre - 2 = Apoyo Deslizante - 3 = Apoyo Fijo - 4 = Empotrado 
+3 3
+Modulo Elasticidad [kN/m2]
+30041637.77
+Área de la viga [m2]
+0.15
+Inercia de la viga [m4]
+0.003125
+Escala para ploteo de estructura deformada
+10
+¿Ver valores de solicitaciones en las figuras? 1 = Si - 2 = No
+1
+Elija que gráficos desea ver. 1 = Si - 2 = No
+Modelo de la estructura   Estructura Deformada  Cortante   Momento   Directa 
+          1                        1               1          1         1  
+Respecto al modelo de la estructura, elija que quiere ver: 1 = Si - 2 = No
+Apoyos    Nº de nodos  Nodos   Barras  Cargas
+   1			1		 1		 1  	 1
+
+
+
+
+   

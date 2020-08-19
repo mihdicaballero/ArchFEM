@@ -1,0 +1,35 @@
+Coordenadas de los dos apoyos (x,y) [m]
+2 5
+10 8
+Coordenada de otro punto conocido del arco (x,y) [m]
+6 10
+Num Elementos (mínimo 2)
+30
+Carga distribuida (positiva hacia arriba) [kN/m]
+-5
+Tipo de distribución de la carga: 1 = Según eje horizontal - 2 = A lo largo del arco
+2
+Cargas puntuales (Fx positiva hacia la derecha, Fy positiva hacia arriba, Mz positivo antihorario):
+Cantidad de cargas puntuales:
+1
+Nodo   Fx [kN]  Fy [kN] Mz [kN.m]
+15		 0		  -10 	  0
+Tipos de apoyos de cada extremo [Izq Der]:
+1 = Libre - 2 = Apoyo Deslizante - 3 = Apoyo Fijo - 4 = Empotrado 
+3 3
+Modulo Elasticidad [kN/m2]
+30041637.77
+Área de la viga [m2]
+0.015
+Inercia de la viga [m4]
+0.0003125
+Escala para ploteo de estructura deformada
+1
+¿Ver valores de solicitaciones en las figuras? 1 = Si - 2 = No
+2
+Elija que gráficos desea ver. 1 = Si - 2 = No
+Modelo de la estructura   Estructura Deformada  Cortante   Momento   Directa 
+          1                        2               1          1         1
+Respecto al modelo de la estructura, elija que quiere ver: 1 = Si - 2 = No
+Apoyos    Nº de nodos  Nodos   Barras  Cargas
+   1			2		 1		 1  	 1

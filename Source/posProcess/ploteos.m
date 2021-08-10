@@ -21,7 +21,7 @@ if Ploteos(1) == 1
 	pos = zeros(nnod,2) ;
 
 	for elem=1:nelem
-		% Coordenadas globales de los nodos segun X e Y 
+		% Coordenadas globales de los nodos segun X e Y
 		x = coordnod( conectiv(elem,:) ,1 ) ;
 		y = coordnod( conectiv(elem,:) ,2 ) ;
 		DeltaX = x(2)-x(1) ; DeltaY = y(2)-y(1) ;
@@ -42,7 +42,7 @@ if Ploteos(1) == 1
 
 			% Ploteo los vectores de las fuerzas
 			% Cargas distruibuidas a lo largo del arco
-			if q_dato ~= 0 && q_tipo == 2 
+			if q_dato ~= 0 && q_tipo == 2
 				% Cantidad de vectores por elemento según las dimensiones de los mismos
 				if l<1.5
 					cant = 2 ;
@@ -70,9 +70,9 @@ if Ploteos(1) == 1
 				% Por si no tengo carga distribuida
 				PosNod = Q' * [0 ; offset] ; %Coordenada (x,y) del numero del nodo i
 			end
-		
 
-		% 
+
+		%
 		pos(elem,1) = PosNod(1) + x(1) ; %Coordenada x del numero del nodo i
 		pos(elem,2) = PosNod(2) + y(1) ; %coordenada y del numero del nodo i
 		pos(elem+1,1) = PosNod(1) + x(2) ; %Coordenada x del numero del nodo j
@@ -87,15 +87,15 @@ if Ploteos(1) == 1
 			x_F = [coordnod(1,1) : Largos(1)/div : coordnod(end,1)] ;
 			y_F = zeros(1,length(x_F));
 			if sign(q_dato) == 1
-				y_F(1,:) = max(coordnod(:,2))+(offset*1.8); 
+				y_F(1,:) = max(coordnod(:,2))+(offset*1.8);
 			else
-				y_F(1,:) = max(coordnod(:,2))+(offset*3.5); 
+				y_F(1,:) = max(coordnod(:,2))+(offset*3.5);
 			end
 			Hq = quiver ( x_F , y_F , 0 , sign(q_dato)*offset*2 , 'linewidth',1.3);
 			set(Hq,'maxheadsize',0.2)
 			plot(x_F,y_F,'linewidth',1.3)
 		end
-		
+
 		% Ploteo de cargas puntuales
 		% Fuerzas puntuales verticales en la estructura
 		for i=1:length(Puntuales_nodos)
@@ -119,7 +119,7 @@ if Ploteos(1) == 1
 				Hm = moment ( x_F , y_F , Puntuales_m_valores(i), offset );
 			end
 		end
-		
+
 	end
 
 	% Ploteo los numeros de los nodos
@@ -142,7 +142,7 @@ if Ploteos(1) == 1
 			plot( HX , HY , 'Color',[0.05,0.07,.4],'linewidth',2)
 		end
 	end
-	
+
 	hold off
 	title('Modelo de la estructura')
 	grid on
@@ -174,7 +174,7 @@ if Ploteos(2) == 1
 	% Grafico la estructura deformada e indeformada
 	% Factor de escala para graficar
 	Ugraf = SF * U ;
-	
+
 	% Ploteo en 2D de la estrutura con apoyos y numero de nodos
 	% Define posición y tamaño de la figura en función del tamaño de la pantalla
 	figure(2)
@@ -182,7 +182,7 @@ if Ploteos(2) == 1
 	set(gcf,'Position',[scrsz(3)*0.2 scrsz(4)*0.3 scrsz(3)*0.7 scrsz(4)*.6])
 
 	for elem=1:nelem
-		% Coordenadas globales de los nodos segun X e Y 
+		% Coordenadas globales de los nodos segun X e Y
 		x = coordnod( conectiv(elem,:) ,1 ) ;
 		y = coordnod( conectiv(elem,:) ,2 ) ;
 		gdlelem = conec2gdlframe (conectiv , elem ) ;
@@ -226,17 +226,17 @@ V_tot = zeros(nelem*(num-1)+nnod,1) ;
 M_tot = zeros(nelem*(num-1)+nnod,1) ;
 R_tot = zeros(nelem*(num-1)+nnod,1) ;
 
-
+U = Uk
 
 for elem = 1:nelem
 	%
-	% Coordenadas globales de los nodos segun X e Y 
+	% Coordenadas globales de los nodos segun X e Y
 	x = coordnod( conectiv(elem,:) ,1 ) ;
 	y = coordnod( conectiv(elem,:) ,2 ) ;
 	DeltaX = x(2)-x(1) ; DeltaY = y(2)-y(1) ;
 	l = sqrt(DeltaX^2+DeltaY^2) ;
 	% Paso para los gráficos
-	paso = l/num ;  
+	paso = l/num ;
 	%
 	% Se calcula la matriz de cambio de base
 	Icb = [ DeltaX/l   DeltaY/l 0   ;...
@@ -253,7 +253,7 @@ for elem = 1:nelem
 	gdlelem = conec2gdlframe (conectiv , elem ) ;
 	%
 	% Desplazamientos de nodos del elemento en coordenadas locales
-	desp = Q * U(gdlelem) ; 
+	desp = Q * U(gdlelem) ;
 	%
 	% Vector de posición para los gráficos en coordenalas locales
 	X = 0 : paso : l ;
@@ -270,7 +270,7 @@ for elem = 1:nelem
 	V = zeros(size(X));
 	M = zeros(size(X));
 	R = zeros(size(X));
-	
+
 	for i=1:length(V),
 	  %
 	%~ cd funciones_de_forma
@@ -323,7 +323,7 @@ N_plot = zeros(nelem*(num+1+2),1) ;
 
 for elem = 1:nelem
 	%
-	% Coordenadas globales de los nodos segun X e Y 
+	% Coordenadas globales de los nodos segun X e Y
 	x = coordnod( conectiv(elem,:) ,1 ) ;
 	y = coordnod( conectiv(elem,:) ,2 ) ;
 	DeltaX = x(2)-x(1) ; DeltaY = y(2)-y(1) ;
@@ -522,9 +522,3 @@ if Ploteos(3) == 1 || Ploteos(4) == 1 || Ploteos(5) == 1
 		printf(' El tiempo para plotear las solicitaciones fue de %.2f segundos \n',tiempo_plotsolicitaciones)
 	end
 end
-
-
-
-
-
-

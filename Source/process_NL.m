@@ -1,12 +1,14 @@
 % Nonlinear analysis of arches with corotational finite element
 % Mihdi Caballero - November 2017
+nLoadSteps = 2; solutionMethod = 1; targetLoadFactor = 1;
+NRtoldeltau = 1e-6; NRtolits = 20 ; numbercontroldof = 1 ; controldof_1 = 3*10+2
 
-% Initialization of variables for iteration 
+% Initialization of variables for iteration
 Uk      = zeros( 3*nnod,   1 ) ;  % Displacement and slopes of nodes in equilibrium
 uks1     = zeros( nLoadSteps, 1 ) ;  % Displacement and slopes of nodes in every load step
 uks2     = zeros( nLoadSteps, 1 ) ;  % Displacement and slopes of nodes in every load step
 fks     = zeros( nLoadSteps, 1 ) ;  % Forces in the structure in every load step
-Thetask = zeros( nelem,     1 ) ;  % Slope of nodes in every load step 
+Thetask = zeros( nelem,     1 ) ;  % Slope of nodes in every load step
 Itsnums = zeros( nLoadSteps, 1 ) ;  % Numver of iteration in every load step
 factorescriticos = [] ;
 
@@ -29,7 +31,7 @@ prodvals=1;
 
 %~ filestressoutput = [outputdir  '/output_stresses.txt' ];
 %~ fidstress = fopen(filestressoutput,'w');
- 
+
 
 tic;
 
@@ -45,13 +47,13 @@ while ( reachedtargetLF == 0 ) % while the flag is still 0
 	%~ % stopping criteria: convergence in forces
 	while ( dispConverged == 0 ) % While there's no coenvergence iterate for one load step
 		dispIter += 1 ; % Increase display iteration
-		
-		assembly 
+
+		assembly
 
 		if solutionMethod == 1
 		  % performs one newton-raphson iteration
-		  NR_iter 
-		
+		  NR_iter
+
 		elseif solutionMethod == 2
 		  % performs one newton-raphson-arc-length iteration
 		  NR_AL_iter
@@ -70,13 +72,13 @@ while ( reachedtargetLF == 0 ) % while the flag is still 0
 		  Itsnums( loadIter ) = dispIter;
 		end
 		% -------------------------
-		
+
 	end
 
 	  % ----------------------------------
 
 	loadfactors(loadIter) = currLoadFactor ;
-	if numbercontroldof == 1 
+	if numbercontroldof == 1
 		uks1(loadIter)         = sign(controldof_1) * Uk(abs(controldof_1)) ;
 	else
 		uks1(loadIter)         = sign(controldof_1) * Uk(abs(controldof_1)) ;
@@ -93,20 +95,20 @@ while ( reachedtargetLF == 0 ) % while the flag is still 0
 	% -----------------------------------
 	% buckling analysis
 	[vec,vals] = eig( KTred ) ;
-	Keigvals = diag(vals) ; 
+	Keigvals = diag(vals) ;
 	nKeigpos = length( find(Keigvals >  0 ) );
 	nKeigneg = length( find(Keigvals <= 0 ) );
-	   
-	[a, lambtech ] = eig( KTred ,  KG0red ) ;  
-	lambtech = diag(lambtech) ;
-	%
-	if length( find( lambtech >  0 ) ) > 0
-		lambdatech_crit = min ( lambtech ( find( lambtech >  0 ) ) ) ;
-		lambda_crit  = 1 / ( 1 - lambdatech_crit ) ;
-		factor_crit = lambda_crit * loadfactors( loadIter ) ;
-	else
-		factor_crit = 0;
-	end
+
+	% [a, lambtech ] = eig( KTred ,  KG0red ) ;
+	% lambtech = diag(lambtech) ;
+	% %
+	% if length( find( lambtech >  0 ) ) > 0
+	% 	lambdatech_crit = min ( lambtech ( find( lambtech >  0 ) ) ) ;
+	% 	lambda_crit  = 1 / ( 1 - lambdatech_crit ) ;
+	% 	factor_crit = lambda_crit * loadfactors( loadIter ) ;
+	% else
+	% 	factor_crit = 0;
+	% end
 
 	%~ % linearized according to Bathe
 	%~ if (loadIter == 1)
@@ -114,11 +116,11 @@ while ( reachedtargetLF == 0 ) % while the flag is still 0
 		%~ [a,b] = eig( KL0red , - KG0redBathe ) ;
 		%~ factor_crit_lin_Bathe = min( diag(b) );
 	%~ end
-	% -----------------------------------	
+	% -----------------------------------
 
 	% latex table output
-	fprintf(' %4i & %12.3e  & %4i & %12.5e & %5i & %3i \\\\\n', ...
-	loadIter, currLoadFactor,  dispIter , factor_crit , nKeigpos, nKeigneg)
+	% fprintf(' %4i & %12.3e  & %4i & %12.5e & %5i & %3i \\\\\n', ...
+	% loadIter, currLoadFactor,  dispIter , factor_crit , nKeigpos, nKeigneg)
 	% -----------------------------------
 
 end
@@ -126,13 +128,3 @@ end
 fprintf('----------------------------------------------- \n')
 
 total_iterations_time_in_seconds = toc
-
-
-
-
-
-
-
-
-
-

@@ -33,16 +33,16 @@ disp('                1 = English              2 = Espanol')
 
 try
 	Language = input('                                 ans: ') ;
-	while length(Language) == 0 || (Language ~= 1 & Language ~= 2) 
-		disp(" That's not an anavailable option, choose again. \n Esa no es una opcion disponible, elija de nuevo")
+	while length(Language) == 0 || (Language ~= 1 & Language ~= 2)
+		disp(" That's not an available option, choose again. \n Esa no es una opcion disponible, elija de nuevo")
 		Language = input(' ans: ') ;
 	end
 	%
 catch
 	disp(" The option entered is not correct, try again. \n La opcion ingresada no es correcta, pruebe de nuevo.")
 	Language = input(' ans: ') ;
-	while length(Language) == 0 || (Language ~= 1 & Language ~= 2) 
-		disp(" That's not an anavailable option, choose again. \n Esa no es una opcion disponible, elija de nuevo")
+	while length(Language) == 0 || (Language ~= 1 & Language ~= 2)
+		disp(" That's not an available option, choose again. \n Esa no es una opcion disponible, elija de nuevo")
 		Language = input(' ans: ') ;
 	end
 	%
@@ -83,7 +83,7 @@ if Language == 1
 
 	try
 	tipo = input(' Type: ') ;
-	while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3) 
+	while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3)
 		disp(" That's not an anavailable option, choose again")
 		tipo = input(' Type: ') ;
 	end
@@ -91,7 +91,7 @@ if Language == 1
 	catch
 	disp(' The option entered is not correct, try again')
 	tipo = input(' Type: ') ;
-	while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3) 
+	while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3)
 		disp(" That's not an anavailable option, choose again")
 		tipo = input(' Type: ') ;
 	end
@@ -119,7 +119,7 @@ if Language == 1
 			end
 			if analysis == 1
 				Process
-			else 
+			else
 				setini
 				process_NL
 			end
@@ -127,7 +127,7 @@ if Language == 1
 				ploteos
 				output
 			cd ..
-		cd ..			
+		cd ..
 	elseif tipo ==2
 		disp('')
 		disp(' Edit the input values for this type of arch.')
@@ -176,7 +176,7 @@ if Language == 1
 		cd ..
 	end
 elseif Language == 2
-%                                 
+%
 	disp(' ===========================================================================')
 	disp(' ======================= PROGRAMA DE ANALISIS DE ARCOS =====================')
 	disp(' ===========================================================================')
@@ -209,7 +209,7 @@ elseif Language == 2
 
 	try
 	tipo = input(' Tipo: ') ;
-		while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3) 
+		while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3)
 			disp(' Esa no es una opcion disponible, elija de nuevo')
 			tipo = input(' Tipo: ') ;
 		end
@@ -217,7 +217,7 @@ elseif Language == 2
 	catch
 	disp(' La opcion ingresada no es correcta, pruebe de nuevo')
 		tipo = input(' Tipo: ') ;
-		while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3) 
+		while length(tipo) == 0 || (tipo ~= 1 & tipo ~= 2 & tipo ~= 3)
 			disp(' Esa no es una opcion disponible, elija de nuevo')
 			tipo = input(' Tipo: ') ;
 		end
@@ -295,26 +295,3 @@ elseif Language == 2
 	cd ..
 	end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
